@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 4638078165498462608
-    second: Sprite_Mario_0
+    second: Idle
   - first:
       213: 7535359878243092818
-    second: Sprite_Mario_1
+    second: Walk1
   - first:
       213: -3905991941800648080
-    second: Sprite_Mario_2
+    second: Walk2
   - first:
       213: 1554904934580016266
     second: Sprite_Mario_3
@@ -28,7 +28,7 @@ TextureImporter:
     second: Sprite_Mario_7
   - first:
       213: -5672653749854861051
-    second: Sprite_Mario_8
+    second: Jump
   - first:
       213: 3387244394707617170
     second: Sprite_Mario_9
@@ -286,7 +286,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Mario_0
+      name: Idle
       rect:
         serializedVersion: 2
         x: 3
@@ -307,7 +307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_1
+      name: Walk1
       rect:
         serializedVersion: 2
         x: 20
@@ -328,7 +328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_2
+      name: Walk2
       rect:
         serializedVersion: 2
         x: 37
@@ -454,7 +454,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_8
+      name: Jump
       rect:
         serializedVersion: 2
         x: 144
