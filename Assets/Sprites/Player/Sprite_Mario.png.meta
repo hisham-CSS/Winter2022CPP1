@@ -145,13 +145,13 @@ TextureImporter:
     second: Sprite_Mario_46
   - first:
       213: 3302078408146908689
-    second: Sprite_Mario_47
+    second: MarioFire1
   - first:
       213: -4040994371160570336
-    second: Sprite_Mario_48
+    second: MarioFire2
   - first:
       213: 2070263079612885921
-    second: Sprite_Mario_49
+    second: MarioFire3
   - first:
       213: -5021473000565013323
     second: Sprite_Mario_50
@@ -1273,7 +1273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_47
+      name: MarioFire1
       rect:
         serializedVersion: 2
         x: 61
@@ -1294,7 +1294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_48
+      name: MarioFire2
       rect:
         serializedVersion: 2
         x: 79
@@ -1315,7 +1315,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_49
+      name: MarioFire3
       rect:
         serializedVersion: 2
         x: 97
