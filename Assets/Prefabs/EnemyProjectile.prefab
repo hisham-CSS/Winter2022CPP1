@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6351991142738839280}
   - component: {fileID: 811645460808516050}
   m_Layer: 0
-  m_Name: PlayerProjectile
-  m_TagString: PlayerProjectile
+  m_Name: EnemyProjectile
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 2116891383
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 764029468473576725, guid: d3aeadd1d5fc63f4fadbf3b893bd1d0d, type: 3}
+  m_Sprite: {fileID: -6284743126234988054, guid: d3aeadd1d5fc63f4fadbf3b893bd1d0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

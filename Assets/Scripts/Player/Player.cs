@@ -163,4 +163,16 @@ public class Player : MonoBehaviour
         jumpForce /= 2;
         coroutineRunning = false;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Squish")
+        {
+            col.gameObject.GetComponentInParent<EnemyWalker>().IsSquished();
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * jumpForce);
+            Destroy(col.gameObject);
+
+        }
+    }
 }
