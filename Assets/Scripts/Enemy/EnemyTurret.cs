@@ -6,6 +6,7 @@ public class EnemyTurret : Enemy
 {
     [SerializeField] float projectileForce;
     [SerializeField] float projectileFireRate;
+    [SerializeField] float turretFireDistance;
 
     float timeSinceLastFire;
 
@@ -23,6 +24,9 @@ public class EnemyTurret : Enemy
 
         if (projectileFireRate <= 0)
             projectileFireRate = 2.0f;
+
+        if (turretFireDistance <= 0)
+            turretFireDistance = 5.0f;
 
         if (!projectilePrefab)
         {
@@ -53,11 +57,27 @@ public class EnemyTurret : Enemy
         if (!anim.GetBool("Fire"))
         {
             //HINT = THIS IS WHERE YOU WOULD CHECK DIRECTION/DISTANCE TO TARGET/ETC.
-            if (Time.time >= timeSinceLastFire + projectileFireRate)
+            if (GameManager.instance.playerInstance)
             {
-                anim.SetBool("Fire", true);
+                if (GameManager.instance.playerInstance.transform.position.x < transform.position.x)
+                {
+                    sr.flipX = true;
+                }
+                else
+                {
+                    sr.flipX = false;
+                }
             }
-                
+
+            float distance = Vector2.Distance(transform.position, GameManager.instance.playerInstance.transform.position);
+
+            if (distance <= turretFireDistance)
+            {
+                if (Time.time >= timeSinceLastFire + projectileFireRate)
+                {
+                    anim.SetBool("Fire", true);
+                }
+            }  
         }
         
     }
@@ -66,8 +86,17 @@ public class EnemyTurret : Enemy
     {
         timeSinceLastFire = Time.time;
 
-        Projectile temp = Instantiate(projectilePrefab, projectileSpawnPointRight.position, projectileSpawnPointRight.rotation);
-        temp.speed = projectileForce;
+        if (sr.flipX)
+        {
+            Projectile temp = Instantiate(projectilePrefab, projectileSpawnPointLeft.position, projectileSpawnPointLeft.rotation);
+            temp.speed = -projectileForce;
+        }
+        else
+        {
+            Projectile temp = Instantiate(projectilePrefab, projectileSpawnPointRight.position, projectileSpawnPointRight.rotation);
+            temp.speed = projectileForce;
+        }
+        
     }
 
     public void ReturnToIdle()

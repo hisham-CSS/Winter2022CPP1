@@ -12,41 +12,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
-
-    int _score = 0;
-    int _lives = 1;
-    public int maxLives = 3;
-
-    public int score
-    {
-        get { return _score; }
-        set
-        {
-            _score = value;
-            Debug.Log("Score Set To: " + score.ToString());
-        }
-    }
-
-    public int lives
-    {
-        get { return _lives; }
-        set
-        {
-            //if (_lives > value)
-                //respawn code can go here
-
-            _lives = value;
-            if (_lives > maxLives)
-                _lives = maxLives;
-
-            //if (_lives < 0)
-            //gameover stuff here
-
-            Debug.Log("Lives Set To: " + lives.ToString());
-                    
-        }
-    }
-
+        
     [SerializeField]
     float speed;
 

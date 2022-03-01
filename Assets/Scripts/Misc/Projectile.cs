@@ -46,5 +46,10 @@ public class Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (col.gameObject.tag == "Player" && gameObject.tag == "EnemyProjectile")
+        {
+            GameManager.instance.lives--;
+        }
     }
 }
