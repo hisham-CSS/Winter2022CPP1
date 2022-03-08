@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _score = value;
+            onScoreValueChange.Invoke(value);
             Debug.Log("Score Set To: " + score.ToString());
         }
     }
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
             if (_lives > maxLives)
                 _lives = maxLives;
 
+            onLifeValueChange.Invoke(value);
+
             if (_lives < 0)
             {
                 //gameover stuff here
@@ -56,6 +59,9 @@ public class GameManager : MonoBehaviour
 
         }
     }
+
+    [HideInInspector]public UnityEvent<int> onLifeValueChange;
+    [HideInInspector]public UnityEvent<int> onScoreValueChange;
 
     [HideInInspector] public GameObject playerInstance;
     [HideInInspector] public Level currentLevel;
@@ -77,13 +83,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            if (SceneManager.GetActiveScene().name == "Test")
-                SceneManager.LoadScene("SampleScene");
-            else
-                SceneManager.LoadScene("Test");
-        }
+        //if (Input.GetKeyDown(KeyCode.Backspace))
+        //{
+        //    if (SceneManager.GetActiveScene().name == "Test")
+        //        SceneManager.LoadScene("SampleScene");
+        //    else
+        //        SceneManager.LoadScene("Test");
+        //}
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
             lives--;

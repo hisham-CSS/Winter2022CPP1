@@ -36,7 +36,7 @@ public class PlayerFire : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetTrigger("Fire");
-            Debug.LogError("This is to pause the game");
+            //Debug.LogError("This is to pause the game");
         }
     }
 
