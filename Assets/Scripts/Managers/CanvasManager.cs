@@ -96,15 +96,17 @@ public class CanvasManager : MonoBehaviour
             {
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
 
-                //HUGE HINT FOR THE LAB
-                if (pauseMenu.activeSelf)
-                {
-                    //do something to pause the game
-                }
-                else
-                {
-                    //unpause the game
-                }
+                
+            }
+
+            //HUGE HINT FOR THE LAB
+            if (pauseMenu.activeSelf)
+            {
+                //do something to pause the game
+            }
+            else
+            {
+                //unpause the game
             }
         }    
         
