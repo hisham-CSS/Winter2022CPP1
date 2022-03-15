@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
+[RequireComponent(typeof(AudioSource))]
 public class Pickups : MonoBehaviour
 {
     enum CollectibleType
@@ -12,10 +14,17 @@ public class Pickups : MonoBehaviour
     }
 
     [SerializeField] CollectibleType curCollectible;
+    [SerializeField] AudioClip pickupSound;
+    public AudioMixerGroup soundFXGroup;
+
+    AudioSource myAudioSource;
     public int ScoreValue;
 
     private void Start()
     {
+        if (!myAudioSource)
+            myAudioSource = GetComponent<AudioSource>();
+
         if (curCollectible == CollectibleType.LIFE)
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -27,6 +36,9 @@ public class Pickups : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            PlayerSounds ps = collision.gameObject.GetComponent<PlayerSounds>();
+            ps.Play(pickupSound, soundFXGroup);
+
             switch (curCollectible)
             {
                 case CollectibleType.POWERUP:

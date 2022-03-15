@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public bool verbose = false;
     public bool isGrounded;
-
+    public AudioClip jumpSound;
+    public AudioMixerGroup soundFXGroup;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
-        
+    PlayerSounds ps;
+    
     [SerializeField]
     float speed;
 
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        ps = GetComponent<PlayerSounds>();
 
         if (speed <= 0)
         {
@@ -85,6 +89,7 @@ public class Player : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
+            ps.Play(jumpSound, soundFXGroup);
         }
         
 
